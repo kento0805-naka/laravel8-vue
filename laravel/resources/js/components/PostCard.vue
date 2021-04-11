@@ -8,9 +8,9 @@
     <v-card-text class="headline">投稿日時 {{ post.createdAt }}</v-card-text>
     <v-card-actions class="d-flex flex-row-reverse pr-4">
       <v-icon right @click="del" v-show="post.userId === this.authId">mdi-delete</v-icon>
+      <span>2</span>
       <v-btn @click="like" icon color="pink">
         <v-icon>mdi-heart</v-icon>
-        <span>2</span>
       </v-btn>
     </v-card-actions>
   </v-card>
