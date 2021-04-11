@@ -7,10 +7,14 @@
 import "./bootstrap";
 import ExampleComponent from "./components/ExampleComponent";
 import PostIndexComponent from "./components/PostIndexComponent";
+import Vuetify from "vuetify";
+import "vuetify/dist/vuetify.min.css";
 window.Vue = require("vue");
+Vue.use(Vuetify);
 
 const app = new Vue({
     el: "#app",
+    vuetify: new Vuetify(),
     components: {
         ExampleComponent,
         PostIndexComponent

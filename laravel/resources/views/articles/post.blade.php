@@ -12,7 +12,7 @@
 						</a>
 				  </div>
 					<div class="card-title mt-4">{{ $article->body }}</div>
-					<div class="card-text mt-3">投稿日時 {{ $article->created_at }}</div>
+					<div class="card-text mt-3">投稿日時 {{ $article->created_at->format('Y-m-d') }}</div>
         </div>
     </div>
 </div>

@@ -13,6 +13,7 @@
       @del="deletePost(post.id)"
       :auth-id="userId"
     ></post-card>
+    <v-pagination dark v-model="page" :length="length" :total-visible="10"></v-pagination>
   </div>
 </template>
 
@@ -33,7 +34,9 @@ export default {
       newTweet: "",
       date: "",
       userId: this.userName.id,
-      postId: 1
+      postId: 1,
+      page: 1,
+      length: 0
     };
   },
   computed: {
@@ -66,30 +69,46 @@ export default {
         .catch(function(err) {
           // TODO: エラー発生時の処理を行う
         });
+
+      if (this.posts.length === 5) {
+        this.posts.pop(4);
+      }
       this.posts.unshift(post);
       this.newTweet = "";
     },
     getPosts: function() {
       let post = this.posts;
       let setPostId = this.setPostId;
+      let setLength = this.setLength;
+      let formatDate = this.formatDate;
+      let length = this.length;
+      let page = this.page;
+
       axios
-        .get("/api/article/fetchAllArticles")
+        .get("/api/article/fetchAllArticles?page=" + page)
         .then(function(res) {
-          res.data.forEach(function(article) {
-            post.unshift({
+          res.data.data.forEach(function(article) {
+            post.push({
               id: article.id,
               user: article.user_name,
               tweet: article.body,
-              createdAt: article.created_at,
+              createdAt: formatDate(article.created_at),
               userId: article.user_id
             });
           });
+          setLength(res.data.last_page);
         })
         .then(function(res) {
           setPostId(post[0].id);
         });
     },
     deletePost: function(id) {
+      const judge = confirm("投稿を削除しますか？");
+
+      if (!judge) {
+        return;
+      }
+
       let posts = this.posts;
       const selectedPost = posts.find(function(item) {
         return item.id === id;
@@ -112,6 +131,21 @@ export default {
     },
     setPostId: function(id) {
       this.postId += id;
+    },
+    setLength: function(num) {
+      this.length = num;
+    },
+    formatDate: function(date) {
+      return date
+        .split("")
+        .splice(0, 10)
+        .join("");
+    }
+  },
+  watch: {
+    page: function(num) {
+      this.posts = [];
+      this.getPosts();
     }
   }
 };

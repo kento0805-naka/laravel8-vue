@@ -90,6 +90,15 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
+        
+        'testing' => [
+            'driver' => 'splite',
+            'database' => ':memory:',
+            'prefix' => '',
+            'options' => [
+                PDO::ATTR_PERSISTENT => false,
+            ],
+        ],
 
     ],
 

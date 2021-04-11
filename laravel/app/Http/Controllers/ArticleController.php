@@ -13,7 +13,8 @@ class ArticleController extends Controller
     }
 
     public function index() {
-        $articles = Article::all()->sortByDesc('created_at');
+        $articles = Article::orderBy('id', 'desc');
+        $articles = $articles->paginate(5);
         return view('articles.index', ['articles' => $articles]);
     }
 
@@ -28,10 +29,11 @@ class ArticleController extends Controller
     }
 
     public function fetchAllArticles() {
-        $articles = Article::all();
+        $articles = Article::orderBy('id', 'desc');
+        $articles = $articles->paginate(5);
         foreach($articles as $article) {
             $article->user_name = $article->user->name;
         }
-        return $articles;
+        return response()->json($articles);
     }
 }
