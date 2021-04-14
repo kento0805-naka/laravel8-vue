@@ -11,6 +11,6 @@
       @foreach($articles as $article)
          @include('articles.post')
       @endforeach
-      {{ $articles->links() }}
+      <v-pagination dark :length="{{ $articles->count() }}" :total-visible="10"></v-pagination>
    @endguest
  @endsection
