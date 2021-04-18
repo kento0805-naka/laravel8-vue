@@ -12,9 +12,9 @@
 			<button class="btn btn-outline-primary btn-rounded btn-sm my-0" type="submit">検索</button>
 		</form>
 		
-	<div class="row">
+	<div class="row d-flex justify-content-center">
 		@foreach ($users as $user)
-			<div class="col-lg-3 col-sm-6 p-1 mb-2">
+			<div class="col-lg-3 col-sm-6 p-1 mb-2" style="max-width: 300px;">
 				<a href="{{ route('users.show', ['name' => $user->name]) }}">
 					<div class="card testimonial-card" id="userbox">
 						<div class="card-up indigo lighten-1"></div>
