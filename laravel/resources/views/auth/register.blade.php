@@ -7,7 +7,7 @@
     <div class="row">
       <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
         <h1 class="text-center mt-5"><i class="fab fa-twitter mr-1"></i><a class="text-dark" href="/">いえぃったー</a></h1>
-        <div class="card mt-3" style="border-radius: 10%; height: 600px;">
+        <div class="card mt-3 mx-auto" style="border-radius: 10%; height: 600px; width: 650px;">
           <div class="card-body text-center">
             <h2 class="h3 card-title text-center mt-2">ユーザー登録</h2>
             <div class="card-text">

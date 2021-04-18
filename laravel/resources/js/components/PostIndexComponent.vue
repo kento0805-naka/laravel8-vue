@@ -4,7 +4,7 @@
       <div class="form-group flex-grow-1">
         <input type="text" class="form-control" v-model="newTweet" />
       </div>
-      <button type="submit" class="btn btn-primary btn-sm mb-4">投稿</button>
+      <button type="submit" class="btn btn-primary btn-sm mb-4" style="color: white;">投稿</button>
     </form>
     <post-card
       v-for="post in posts"

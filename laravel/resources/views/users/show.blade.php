@@ -4,7 +4,7 @@
 
 @section('content')
   <div class="container">
-    <div class="card mt-3 mb-4">
+    {{-- <div class="card mt-3 mb-4">
       <div class="card-body">
         <div class="d-flex justify-content-between">
           <div>
@@ -27,10 +27,13 @@
       <div class="card-body">
         <div class="card-text">{{ $user->description }}</div>
       </div>
-    </div>
+    </div> --}}
+    @include('users.profile')
     @foreach($articles as $article)
       @include('articles.post')
     @endforeach
-    {{ $articles->links() }}
+    <div class="d-flex justify-content-center">
+      {{ $articles->links() }}
+    </div>
   </div>
 @endsection
