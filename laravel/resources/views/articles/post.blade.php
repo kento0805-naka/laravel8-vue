@@ -1,19 +1,17 @@
 <div class="container">
-    <div class="card mb-2">
-        <div class="card-header d-flex flex-row-reverse">
-        </div>
-        <div class="card-body">
-					<div class="d-flex">
-            <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
-               <i class="fas fa-user-circle fa-3x mr-3"></i>
-            </a>
-            <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
-              <div class="font-weight-bold">{{ $article->user->name }}</div>
-						</a>
-				  </div>
-					<div class="card-title mt-4">{{ $article->body }}</div>
-					<div class="card-text mt-3">投稿日時 {{ $article->created_at->format('Y-m-d') }}</div>
-        </div>
-    </div>
-</div>
+  <v-card class="mx-auto mb-1" max-width="600">
+    <v-card-title>
+      <v-icon large left>mdi-account-circle</v-icon>
+      <span class="title font-weight-light">{{ $article->user->name }}</span>
+    </v-card-title> 
+    <v-card-text class="headline font-weight-bold">{{ $article->body }}</v-card-text>
+    <v-card-text class="headline">投稿日時 {{ $article->created_at->format('Y-m-d') }}</v-card-text>
+    <v-card-actions class="d-flex flex-row-reverse pr-4">
+      <span>2</span>
+      <v-btn icon onclick="alert('ログインが必要です。')">
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+    </v-card-actions>
+  </v-card>
+</div>  
 

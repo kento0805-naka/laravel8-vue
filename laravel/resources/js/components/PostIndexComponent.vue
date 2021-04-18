@@ -1,11 +1,10 @@
 <template>
-  <div class="container">
-    <form v-on:submit.prevent="addNewPost" class="d-flex mb-4 mt-1">
-      <div class="form-group flex-grow-1">
-        <input type="text" class="form-control" v-model="newTweet" />
-      </div>
-      <button type="submit" class="btn btn-primary btn-sm mb-4">投稿</button>
-    </form>
+  <div class="container" style="width: 100%;">
+    <div class="d-flex flex-row-reverse">
+      <button type="button" data-toggle="modal" data-target="#exampleModal">
+        <i class="fas fa-plus fa-3x"></i>
+      </button>
+    </div>
     <post-card
       v-for="post in posts"
       :key="post.id"
@@ -14,6 +13,36 @@
       :auth-id="userId"
     ></post-card>
     <v-pagination dark v-model="page" :length="length" :total-visible="10"></v-pagination>
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">好きなことをつぶやこう！</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form v-on:submit.prevent="addNewPost" class="mb-4 mt-1">
+            <div class="modal-body">
+              <div class="form-group">
+                <input type="text" class="form-control" v-model="newTweet" />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">投稿</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
