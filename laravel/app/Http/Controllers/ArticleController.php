@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ArticleRequest;
 
 class ArticleController extends Controller

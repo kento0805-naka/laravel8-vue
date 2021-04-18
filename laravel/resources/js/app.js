@@ -7,6 +7,7 @@
 import "./bootstrap";
 import ExampleComponent from "./components/ExampleComponent";
 import PostIndexComponent from "./components/PostIndexComponent";
+import FollowButton from "./components/FollowButton";
 import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
 window.Vue = require("vue");
@@ -17,6 +18,7 @@ const app = new Vue({
     vuetify: new Vuetify(),
     components: {
         ExampleComponent,
-        PostIndexComponent
+        PostIndexComponent,
+        FollowButton
     }
 });
