@@ -14,21 +14,17 @@
               <form method="POST" action="{{ route('register') }}" style="height: 400px;">
                 @csrf
                 <div class="md-form">
-                  <label for="name">ユーザー名</label>
-                  <input class="form-control" type="text" id="name" name="name" required value="{{ old('name') }}">
+                  <input class="form-control" type="text" id="name" name="name" required value="{{ old('name') }}" placeholder="ユーザー名">
                   <small>英数字3〜16文字(登録後の変更はできません)</small>
                 </div>
                 <div class="md-form" style="margin-bottom: 10px">
-                  <label for="email">メールアドレス</label>
-                  <input class="form-control" type="text" id="email" name="email" required value="{{ old('email') }}" >
+                   <input class="form-control" type="text" id="email" name="email" required value="{{ old('email') }}" placeholder="メールアドレス">
                 </div>
                 <div class="md-form" style="margin-bottom: 10px">
-                  <label for="password">パスワード</label>
-                  <input class="form-control" type="password" id="password" name="password" required>
+                  <input class="form-control" type="password" id="password" name="password" required placeholder="パスワード">
                 </div>
                 <div class="md-form" style="margin-bottom: 60px">
-                  <label for="password_confirmation">パスワード(確認)</label>
-                  <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" required>
+                  <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" required placeholder="パスワード(確認)">
                 </div>
                 <button class="btn btn-block blue-gradient mt-2 mb-2" style="margin-top: 65px;" type="submit">ユーザー登録</button>
               </form>

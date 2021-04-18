@@ -14,13 +14,11 @@
               <form method="POST" action="{{ route('login') }}" style="margin-top: 30px;">
                 @csrf
                 <div class="md-form mb-4">
-                  <label for="email">メールアドレス</label>
-                  <input class="form-control" type="text" id="email" name="email" required value="{{ old('email') }}">
+                  <input class="form-control" type="text" id="email" name="email" required value="{{ old('email') }}" placeholder="メールアドレス">
                 </div>
 
                 <div class="md-form mb-4">
-                  <label for="password">パスワード</label>
-                  <input class="form-control" type="password" id="password" name="password" required>
+                  <input class="form-control" type="password" id="password" name="password" required placeholder="パスワード">
                 </div>
  
                 <input type="hidden" name="remember" id="remember" value="on">
