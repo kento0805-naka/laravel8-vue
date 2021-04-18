@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function index(Request $request) {
+        $keyword = $request->input('keyword');
+        if($keyword != '') {
+            $users = User::where('name', 'like', '%'.$keyword.'%')->orderBy('created_at','desc')->get();
+        } else {
+            $users = User::orderBy('created_at','desc')->get();
+        }
+
+        return view('users.index', compact('users'));
+    }
+
     public function show(string $name) {
         $user = User::where('name', $name)->first();
 
