@@ -27,4 +27,8 @@ Route::prefix('users')->name('users.')->group(function () {
     Route::get('/{name}', 'App\Http\Controllers\UserController@show')->name('show')->middleware('auth');
     Route::get('/{name}/edit', 'App\Http\Controllers\UserController@edit')->name('edit')->middleware('auth');
     Route::put('/{name}', 'App\Http\Controllers\UserController@update')->name('update')->middleware('auth');
+    Route::middleware('auth')->group(function () {
+        Route::put('/{name}/follow', 'App\Http\Controllers\UserController@follow')->name('follow');
+        Route::delete('/{name}/follow', 'App\Http\Controllers\UserController@unfollow')->name('unfollow');
+    });
 });
