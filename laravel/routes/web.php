@@ -23,6 +23,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('users')->name('users.')->group(function () {
+    Route::get('/index', 'App\Http\Controllers\UserController@index')->name('index');
     Route::get('/{name}', 'App\Http\Controllers\UserController@show')->name('show')->middleware('auth');
     Route::get('/{name}/edit', 'App\Http\Controllers\UserController@edit')->name('edit')->middleware('auth');
     Route::put('/{name}', 'App\Http\Controllers\UserController@update')->name('update')->middleware('auth');

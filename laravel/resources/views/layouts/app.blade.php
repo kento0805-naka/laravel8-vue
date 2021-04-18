@@ -56,6 +56,9 @@
                             @endif
                         @else
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('users.index') }}">ユーザー検索</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('users.show', ['name' => auth()->user()->name ])}}">マイページ</a>
                             </li>
                             <li class="nav-item">
